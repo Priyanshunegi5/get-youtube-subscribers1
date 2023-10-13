@@ -107,4 +107,36 @@ module.exports = {
             }
         });
     },
+
+    /**
+     * Delete a record from the subscribed table.
+     * 
+     * @property {Function} delete
+     * 
+     * @param {Object|Null} id Identifier for searching record in table
+     * @param {Function} success Will be called after creation
+     * @param {Function} failure Will be called after failure
+     * @return void
+     */
+    delete: function (id, success, failure) {
+        // Delete the specifed
+        // record from the table
+        record = table.findOneAndDelete(id ? id: {})
+
+        // Execute the find and delete instruction in the table
+        record.exec((error, data) =>{
+            if (error) {
+                // Call failure
+                return failure(error)
+            }
+
+            try {
+                // Call success
+                return success(data)
+            } catch(caught){
+                // Call failure
+                return failure(error,caught)
+            }
+        });
+    },
 }
