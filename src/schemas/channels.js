@@ -35,4 +35,12 @@ const channelSchema = new mongoose.Schema({
     },
 })
 
+channelSchema.pre('remove', (callback) => {
+    // Remove the channel
+    // from the subscribed table
+    this.model('Subscribed').remove(
+        { channel: this.id }, callback
+    )
+})
+
 module.exports = channelSchema
