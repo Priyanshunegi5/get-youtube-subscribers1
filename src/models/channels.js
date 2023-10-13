@@ -10,6 +10,39 @@ const table = mongoose.model(
 
 module.exports = {
     /**
+     * Read all the subscriber from channel table.
+     * 
+     * @property {Function} index
+     * 
+     * @param {Function} success Will be called after creation
+     * @param {Function} failure Will be called after failure
+     * @return void
+     */
+    index: function (success, failure) {
+        table.aggregate([{
+            $lookup: {
+                from: "subscribers",
+                as: "subscribers",
+                foreignField: "id",
+                localField: "subscriber",
+            },
+        }],(error, data) =>{
+            if (error) {
+                // Call failure
+                return failure(error)
+            }
+
+            try {
+                // Call success
+                return success(data)
+            } catch(caught){
+                // Call failure
+                return failure(error,caught)
+            }
+        })
+    },
+
+    /**
      * Read all records from the channels table.
      * 
      * @property {Function} all
