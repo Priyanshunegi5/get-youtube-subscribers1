@@ -72,4 +72,39 @@ module.exports = {
             }
         });
     },
+
+    /**
+     * Update a record in the subscribed table.
+     * 
+     * @property {Function} update
+     * 
+     * @param {Object|Null} id Identifier for searching record in table
+     * @param {Object} data Data to be update in table record
+     * @param {Function} success Will be called after creation
+     * @param {Function} failure Will be called after failure
+     * @return void
+     */
+    update: function (id, data, success, failure) {
+        // Update the specifed
+        // record in the table
+        record = table.findOneAndUpdate(
+            id ? id: {}, data
+        )
+
+        // Execute the find and update instruction in the table
+        record.exec((error, data) =>{
+            if (error) {
+                // Call failure
+                return failure(error)
+            }
+
+            try {
+                // Call success
+                return success(data)
+            } catch(caught){
+                // Call failure
+                return failure(error,caught)
+            }
+        });
+    },
 }
