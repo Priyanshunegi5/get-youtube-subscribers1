@@ -10,6 +10,37 @@ const table = mongoose.model(
 
 module.exports = {
     /**
+     * Read all records from the channels table.
+     * 
+     * @property {Function} all
+     * 
+     * @param {Function} success Will be called after creation
+     * @param {Function} failure Will be called after failure
+     * @return void
+     */
+    all: function (success, failure) {
+        // Find all of the
+        // records from table
+        record = table.find({})
+
+        // Execute the find all instruction in the table
+        record.exec((error, data) =>{
+            if (error) {
+                // Call failure
+                return failure(error)
+            }
+
+            try {
+                // Call success
+                return success(data)
+            } catch(caught){
+                // Call failure
+                return failure(error,caught)
+            }
+        });
+    },
+
+    /**
      * Create a record in the channel table.
      * 
      * @property {Function} create
