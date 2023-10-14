@@ -15,6 +15,7 @@
  */
 const channels = {
     all:   require("./v1/channels/all"),
+    read:   require("./v1/channels/read"),
 }
 
 module.exports = { v1: { channels } }
