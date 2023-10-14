@@ -76,4 +76,19 @@ router.delete("/channels/delete/:id",
     apis.v1.channels.delete
 );
 
+/////////////////////////////////////////////////////////////////////////////
+// Subscriber Crude Endpoints version: (V1)
+/////////////////////////////////////////////////////////////////////////////
+/**
+ * The endpoint for creating a subscriber.
+ * 
+ * @auth none
+ * @method post
+ * @access public
+ * @url protocol://domain.tld/api/v1/subscribers/create
+ */
+router.post("/subscribers/create",
+    apis.v1.subscribers.create
+);
+
 module.exports = { v1: router }
