@@ -60,7 +60,7 @@ const subscribers = {
  * @property {Function} index - A function endpoint that reads channel and subscriber from subscribed
  */
 const subscribed = {
-    //
+    all:   require("./v1/subscribed/all"),
 }
 
 module.exports = { v1: { subscribers, channels } }
