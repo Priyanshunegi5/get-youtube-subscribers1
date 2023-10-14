@@ -22,4 +22,22 @@ const channels = {
     index:   require("./v1/channels/index"),
 }
 
+/**
+ * A collection of subscribers endpoints.
+ * 
+ * An object containing functions for crud operation like:
+ * reading, editing, creating, updating, and removing subscriber.
+ * 
+ * @type {subscriber}
+ * @typedef {Object} subscriber
+ * @property {Function} all - A function endpoint that reads all subscriber.
+ * @property {Function} read - A function endpoint that reads a subscriber.
+ * @property {Function} create - A function endpoint that creates a subscriber.
+ * @property {Function} update - A function endpoint that updates a subscriber.
+ * @property {Function} delete - A function endpoint that delete a subscriber.
+ */
+const subscribers = {
+    //
+}
+
 module.exports = { v1: { channels } }
