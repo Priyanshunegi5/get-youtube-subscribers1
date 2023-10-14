@@ -40,4 +40,16 @@ router.get("/channels/all",
     apis.v1.channels.all
 );
 
+/**
+ * The endpoint for reading a channel.
+ * 
+ * @auth none
+ * @method get
+ * @access public
+ * @url protocol://domain.tld/api/v1/channels/read/{id}
+ */
+router.get("/channels/read/:id",
+    apis.v1.channels.read
+);
+
 module.exports = { v1: router }
