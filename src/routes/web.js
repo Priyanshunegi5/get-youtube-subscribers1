@@ -178,4 +178,16 @@ router.get("/subscribed/all",
     apis.v1.subscribed.all
 );
 
+/**
+ * The endpoint for reading a subscribed.
+ * 
+ * @auth none
+ * @method get
+ * @access public
+ * @url protocol://domain.tld/api/v1/subscribed/read/{id}
+ */
+router.get("/subscribed/read/:id",
+    apis.v1.subscribed.read
+);
+
 module.exports = { v1: router }
