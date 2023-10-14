@@ -28,4 +28,16 @@ router.post("/channels/create",
     apis.v1.channels.create
 );
 
+/**
+ * The endpoint for reading all channels.
+ * 
+ * @auth none
+ * @method get
+ * @access public
+ * @url protocol://domain.tld/api/v1/channels/all
+ */
+router.get("/channels/all",
+    apis.v1.channels.all
+);
+
 module.exports = { v1: router }
