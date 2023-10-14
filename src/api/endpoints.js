@@ -44,4 +44,23 @@ const subscribers = {
     delete: require("./v1/subscribers/delete")
 }
 
-module.exports = { v1: { channels } }
+/**
+ * A collection of subscribed endpoints.
+ * 
+ * An object containing functions for crud operation like:
+ * reading, editing, creating, updating, and removing subscribed.
+ * 
+ * @type {subscribed}
+ * @typedef {Object} subscribed
+ * @property {Function} all - A function endpoint that reads all subscribed.
+ * @property {Function} read - A function endpoint that reads a subscribed..
+ * @property {Function} create - A function endpoint that creates a subscribed.
+ * @property {Function} update - A function endpoint that updates a subscribed.
+ * @property {Function} delete - A function endpoint that delete a subscribed.
+ * @property {Function} index - A function endpoint that reads channel and subscriber from subscribed
+ */
+const subscribed = {
+    //
+}
+
+module.exports = { v1: { subscribers, channels } }
