@@ -19,6 +19,7 @@ const channels = {
     create: require("./v1/channels/create"),
     update: require("./v1/channels/update"),
     delete: require("./v1/channels/delete"),
+    index:   require("./v1/channels/index"),
 }
 
 module.exports = { v1: { channels } }
