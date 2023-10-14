@@ -52,4 +52,16 @@ router.get("/channels/read/:id",
     apis.v1.channels.read
 );
 
+/**
+ * The endpoint for updating a channel.
+ * 
+ * @auth none
+ * @method patch
+ * @access public
+ * @url protocol://domain.tld/api/v1/channels/update/{id}
+ */
+router.patch("/channels/update/:id",
+    apis.v1.channels.update
+);
+
 module.exports = { v1: router }
