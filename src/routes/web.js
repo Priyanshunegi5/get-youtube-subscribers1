@@ -139,4 +139,19 @@ router.delete("/subscribers/delete/:id",
     apis.v1.subscribers.delete
 );
 
+/////////////////////////////////////////////////////////////////////////////
+// Subscribed Crude Endpoints version: (V1)
+/////////////////////////////////////////////////////////////////////////////
+/**
+ * The endpoint for reading all channel and subscribers from subscribed.
+ * 
+ * @auth none
+ * @method post
+ * @access public
+ * @url protocol://domain.tld/api/v1/subscribed
+ */
+router.get("/subscribed",
+    apis.v1.subscribed.index
+);
+
 module.exports = { v1: router }
