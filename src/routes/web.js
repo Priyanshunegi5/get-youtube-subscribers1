@@ -154,4 +154,16 @@ router.get("/subscribed",
     apis.v1.subscribed.index
 );
 
+/**
+ * The endpoint for creating a subscribed.
+ * 
+ * @auth none
+ * @method post
+ * @access public
+ * @url protocol://domain.tld/api/v1/subscribed/create
+ */
+router.post("/subscribed/create",
+    apis.v1.subscribed.create
+);
+
 module.exports = { v1: router }
