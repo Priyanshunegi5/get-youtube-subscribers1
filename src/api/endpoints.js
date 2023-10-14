@@ -68,4 +68,4 @@ const subscribed = {
     index:   require("./v1/subscribed/index"),
 }
 
-module.exports = { v1: { subscribers, channels } }
+module.exports = { v1: { subscribers, channels, subscribed } }
