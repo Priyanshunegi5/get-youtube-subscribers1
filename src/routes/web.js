@@ -115,4 +115,16 @@ router.get("/subscribers/read/:id",
     apis.v1.subscribers.read
 );
 
+/**
+ * The endpoint for updating a subscriber.
+ * 
+ * @auth none
+ * @method patch
+ * @access public
+ * @url protocol://domain.tld/api/v1/subscribers/update/{id}
+ */
+router.patch("/subscribers/update/:id",
+    apis.v1.subscribers.update
+);
+
 module.exports = { v1: router }
