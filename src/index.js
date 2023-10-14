@@ -45,3 +45,16 @@ app.use((req, res, next) => {
         }
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////
+// Connect to our mongoose database
+/////////////////////////////////////////////////////////////////////////////
+mongoose.connect(env.DATABASE_URL,{
+    useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true
+}).catch(err =>{
+    // Catch all database connection errors
+    console.error(err.stack)
+    process.exit(1)
+}).then(async client => {
+    //
+});
