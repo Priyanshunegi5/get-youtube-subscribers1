@@ -37,7 +37,7 @@ const channels = {
  * @property {Function} delete - A function endpoint that delete a subscriber.
  */
 const subscribers = {
-    //
+    all:   require("./v1/subscribers/all"),
 }
 
 module.exports = { v1: { channels } }
