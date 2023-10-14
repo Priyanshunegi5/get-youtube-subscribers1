@@ -103,4 +103,16 @@ router.get("/subscribers/all",
     apis.v1.subscribers.all
 );
 
+/**
+ * The endpoint for reading a subscriber.
+ * 
+ * @auth none
+ * @method get
+ * @access public
+ * @url protocol://domain.tld/api/v1/subscribers/read/{id}
+ */
+router.get("/subscribers/read/:id",
+    apis.v1.subscribers.read
+);
+
 module.exports = { v1: router }
