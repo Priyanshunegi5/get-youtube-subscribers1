@@ -91,4 +91,16 @@ router.post("/subscribers/create",
     apis.v1.subscribers.create
 );
 
+/**
+ * The endpoint for reading all subscribers.
+ * 
+ * @auth none
+ * @method get
+ * @access public
+ * @url protocol://domain.tld/api/v1/subscribers/all
+ */
+router.get("/subscribers/all",
+    apis.v1.subscribers.all
+);
+
 module.exports = { v1: router }
