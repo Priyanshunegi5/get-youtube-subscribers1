@@ -202,4 +202,16 @@ router.patch("/subscribed/update/:id",
     apis.v1.subscribed.update
 );
 
+/**
+ * The endpoint for deleting a subscribed.
+ * 
+ * @auth none
+ * @method delete
+ * @access public
+ * @url protocol://domain.tld/api/v1/subscribed/delete/{id}
+ */
+router.delete("/subscribed/delete/:id",
+    apis.v1.subscribed.delete
+);
+
 module.exports = { v1: router }
