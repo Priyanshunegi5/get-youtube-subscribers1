@@ -17,3 +17,31 @@ const env = dotenv.config().parsed
 app.use(express.json())
 //Process incomming urlencoded request payload.
 app.use(express.urlencoded({ extended: false }));
+
+/////////////////////////////////////////////////////////////////////////////
+// In this section we register our router
+// which register all routes in the application
+/////////////////////////////////////////////////////////////////////////////
+app.use('/api/v1/', router.v1 )
+// Handle internal server error - (500)
+app.use((err, req, res, next) => {
+    return res.status(500).send({
+        data: null,
+        result: {
+            code: 500,
+            message: "failure",
+            errors: [ err ]
+        }
+    });
+});
+// Handle route not found - (404)
+app.use((req, res, next) => {
+    return res.status(404).send({
+        data: null,
+        result: {
+            code: 404,
+            message: "failure",
+            errors: [`path: ${req.url} not found.`]
+        }
+    });
+});
