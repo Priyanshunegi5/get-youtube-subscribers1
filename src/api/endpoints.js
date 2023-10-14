@@ -64,6 +64,7 @@ const subscribed = {
     read:   require("./v1/subscribed/read"),
     create: require("./v1/subscribed/create"),
     update: require("./v1/subscribed/update"),
+    delete: require("./v1/subscribed/delete"),
 }
 
 module.exports = { v1: { subscribers, channels } }
