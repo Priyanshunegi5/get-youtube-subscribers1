@@ -9,3 +9,11 @@ const router = require("./routes/web")
 const app = express()
 // Get parsed env file
 const env = dotenv.config().parsed
+
+/////////////////////////////////////////////////////////////////////////////
+// In this section we parse incomming request payload 
+/////////////////////////////////////////////////////////////////////////////
+//Process incomming json request payload.
+app.use(express.json())
+//Process incomming urlencoded request payload.
+app.use(express.urlencoded({ extended: false }));
