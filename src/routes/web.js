@@ -166,4 +166,16 @@ router.post("/subscribed/create",
     apis.v1.subscribed.create
 );
 
+/**
+ * The endpoint for reading all subscribeds.
+ * 
+ * @auth none
+ * @method get
+ * @access public
+ * @url protocol://domain.tld/api/v1/subscribed/all
+ */
+router.get("/subscribed/all",
+    apis.v1.subscribed.all
+);
+
 module.exports = { v1: router }
