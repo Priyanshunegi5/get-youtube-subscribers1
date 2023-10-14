@@ -14,7 +14,7 @@
  * @property {Function} index - A function endpoint that reads subscriber from channel
  */
 const channels = {
-    //
+    all:   require("./v1/channels/all"),
 }
 
 module.exports = { v1: { channels } }
