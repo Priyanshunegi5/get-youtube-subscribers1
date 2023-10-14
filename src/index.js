@@ -56,5 +56,12 @@ mongoose.connect(env.DATABASE_URL,{
     console.error(err.stack)
     process.exit(1)
 }).then(async client => {
-    //
+    // After successfully 
+    // connecting with database we listen to 
+    // incomming request to our server application.
+    app.listen(env.APP_PORT, () => {
+        console.log('info',
+            `Server is running at port: ${env.APP_PORT}`
+        );
+    });
 });
