@@ -64,4 +64,16 @@ router.patch("/channels/update/:id",
     apis.v1.channels.update
 );
 
+/**
+ * The endpoint for deleting a channel.
+ * 
+ * @auth none
+ * @method delete
+ * @access public
+ * @url protocol://domain.tld/api/v1/channels/delete/{id}
+ */
+router.delete("/channels/delete/:id",
+    apis.v1.channels.delete
+);
+
 module.exports = { v1: router }
