@@ -3,14 +3,47 @@ const mongoose = require('mongoose');
 // Get database connection
 const conn = mongoose.connection
 
-// Get subscribers table
+// Get channels table
 const table = mongoose.model(
-    "Subscribers", require("./../schemas/subscribers")
+    "Channels", require("../schemas/channels")
 )
 
 module.exports = {
     /**
-     * Read all records from the subscribers table.
+     * Read all the subscriber from channel table.
+     * 
+     * @property {Function} index
+     * 
+     * @param {Function} success Will be called after creation
+     * @param {Function} failure Will be called after failure
+     * @return void
+     */
+    index: function (success, failure) {
+        table.aggregate([{
+            $lookup: {
+                from: "subscribers",
+                as: "subscribers",
+                foreignField: "id",
+                localField: "subscriber",
+            },
+        }],(error, data) =>{
+            if (error) {
+                // Call failure
+                return failure(error)
+            }
+
+            try {
+                // Call success
+                return success(data)
+            } catch(caught){
+                // Call failure
+                return failure(error,caught)
+            }
+        })
+    },
+
+    /**
+     * Read all records from the channels table.
      * 
      * @property {Function} all
      * 
@@ -41,7 +74,7 @@ module.exports = {
     },
 
     /**
-     * Create a record in the subscribers table.
+     * Create a record in the channel table.
      * 
      * @property {Function} create
      * 
@@ -56,7 +89,7 @@ module.exports = {
         record = new table(data)
 
         // Save the record in the table
-        record.save((error, data) =>{
+        record.save((error, data) => {
             if (error) {
                 // Call failure
                 return failure(error)
@@ -73,7 +106,7 @@ module.exports = {
     },
 
     /**
-     * Read a record from the subscribers table.
+     * Read a record from the channel table.
      * 
      * @property {Function} read
      * 
@@ -105,7 +138,7 @@ module.exports = {
     },
 
     /**
-     * Update a record in the subscribers table.
+     * Update a record in the channel table.
      * 
      * @property {Function} update
      * 
@@ -140,7 +173,7 @@ module.exports = {
     },
 
     /**
-     * Delete a record from the subscribers table.
+     * Delete a record from the channel table.
      * 
      * @property {Function} delete
      * 
